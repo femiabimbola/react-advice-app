@@ -1,1 +1,16 @@
+html body #root {
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
 
+.app {
+    height: 100%;
+    display: flex;
+    background: url('./image/image-background.jpg');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,16 +3,31 @@ import axios from 'axios';
 import './App.css';
 
 class App extends React.Component {
+    state = {
+        advice:'',
+    }
+
+   
+    componentDidMount() {
+        this.fetchAdviceApi();
+    }
 
     fetchAdviceApi = () => {
-        axios.get()
-            .then()
+        axios.get('https://api.adviceslip.com/advice')
+            .then((res) => {
+                const {advice} = res.data.slip;
+                this.setState({advice})
+            })
+            .catch((e) => console.log(e));
     }
 
     render(){
+        const {advice} = this.state
         return (
-            <h1> Hello World!</h1>
-        )
+            <div className = "app">
+            <h1> {advice} </h1>
+            </div>
+      )
     }
 }
 
